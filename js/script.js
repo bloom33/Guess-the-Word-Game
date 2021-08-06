@@ -32,7 +32,7 @@ placeholder(word);
 
 //Event listener for when user presses the button// 
 button.addEventListener("click", fucntion (e) {
-    e.preventDefault(); 
+    e.preventDefault(); //prevents page from refreshing everytime guess button is clicked//
     const userGuess = inputLetter.value;
     console.log(userGuess);
     inputLetter.value = "";
