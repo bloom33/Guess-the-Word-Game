@@ -19,12 +19,13 @@ const word = "magnolia";
 
 
 //Display circle symbol as a placeholder for letters while user guesses//
-const placeholder = function(word) {
+const placeholder = function (word) {
     const lettersGuessed = [];
     for (const letter of word) {
-        console.log(letter)
-        lettersGuessed.push("●")
+        console.log(letter);
+        lettersGuessed.push("●");
     }
+
     wordProgress.innnerText = lettersGuessed.join("");
 };
 
@@ -34,7 +35,7 @@ placeholder(word);
 button.addEventListener("click", function (e) {
     e.preventDefault(); //prevents page from refreshing everytime guess button is clicked//
     const userGuess = inputLetter.value; //grab what was entered in the input//
-    //console.log(userGuess);
+    console.log(userGuess);
     inputLetter.value = "";
 
     guessMessage.innnerText = ""; //empty message paragraph//
