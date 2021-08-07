@@ -13,8 +13,9 @@ const remainGuessText = document.querySelector("span");
 const guessMessage = document.querySelector(".message");
 //The hidden button that will appear prompting the player to play again//
 const playAgain = document.querySelector(".play-again"); 
-//Starter word to test the app before fetching API data//
 //The unordered list where the player’s guessed letters will appear//
+
+//Starter word to test the app before fetching API data//
 const word = "magnolia";
 
 
