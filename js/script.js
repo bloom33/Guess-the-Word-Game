@@ -1,4 +1,3 @@
-//The unordered list where the player’s guessed letters will appear//
 const guessLetters = document.querySelector(".guessed-letters");
 //The button with the text “Guess!” in it//
 const button = document.querySelector(".guess");
@@ -15,6 +14,7 @@ const guessMessage = document.querySelector(".message");
 //The hidden button that will appear prompting the player to play again//
 const playAgain = document.querySelector(".play-again"); 
 //Starter word to test the app before fetching API data//
+//The unordered list where the player’s guessed letters will appear//
 const word = "magnolia";
 
 
@@ -31,9 +31,39 @@ const placeholder = function(word) {
 placeholder(word);
 
 //Event listener for when user presses the button// 
-button.addEventListener("click", fucntion (e) {
+button.addEventListener("click", function (e) {
     e.preventDefault(); //prevents page from refreshing everytime guess button is clicked//
-    const userGuess = inputLetter.value;
-    console.log(userGuess);
+    const userGuess = inputLetter.value; //grab what was entered in the input//
+    //console.log(userGuess);
     inputLetter.value = "";
+
+    guessMessage.innnerText = ""; //empty message paragraph//
+    
 });
+
+//day 2// 
+
+//function which validates the user's input//
+const validateInput = function (input) {
+    const acceptedLetter = /[a-zA-Z]/; //the regular expression which ensures player puts in a letter//
+
+    //input empty?//
+    if (input.length === 0) {
+        guessMessage.innnerText = "Enter a letter!" ;
+
+    //user inputs more than one letter?//  
+    } else if (input.length > 1) {
+        guessMessage.innnerText = "Enter one letter please." ;
+
+    //input contains special character, number, or some other entry that's not a letter?//  
+    } else if (!input.match(acceptedLetter)) {
+        guessMessage.innnerText = "Try again! Enter a letter from A to Z, please.";
+
+    } else {
+        return input;
+    };
+
+    
+}
+
+console.log(inputLetter);
