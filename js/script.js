@@ -39,7 +39,7 @@ button.addEventListener("click", function (e) {
     console.log(userGuess);
     inputLetter.value = "";
 
-    guessMessage.innnerText = ""; //empty message paragraph//
+    guessMessage.innerText = ""; //empty message paragraph//
     
 });
 
@@ -51,15 +51,15 @@ const validateInput = function (input) {
 
     //input empty?//
     if (input.length === 0) {
-        guessMessage.innnerText = "Enter a letter!" ;
+        guessMessage.innerText = "Enter a letter!" ;
 
     //user inputs more than one letter?//  
     } else if (input.length > 1) {
-        guessMessage.innnerText = "Enter one letter please." ;
+        guessMessage.innerText = "Enter one letter please." ;
 
     //input contains special character, number, or some other entry that's not a letter?//  
     } else if (!input.match(acceptedLetter)) {
-        guessMessage.innnerText = "Try again! Enter a letter from A to Z, please.";
+        guessMessage.innerText = "Try again! Enter a letter from A to Z, please.";
 
     } else {
         return input;
