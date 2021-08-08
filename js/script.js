@@ -1,4 +1,4 @@
-const guessLetters = document.querySelector(".guessed-letters");
+const guessLettersElement = document.querySelector(".guessed-letters");
 //The button with the text “Guess!” in it//
 const button = document.querySelector(".guess");
 //The text input where the player will guess a letter//
@@ -42,8 +42,15 @@ button.addEventListener("click", function (e) {
 
     guessMessage.innerText = ""; //empty message paragraph//
 
-    const guess = validateInput(inputLetter);
-    console.log(guess);
+   // const guess = validateInput(inputLetter);
+   // console.log(guess);
+
+    const goodGuess = validateInput(userGuess);
+
+    if (goodGuess) {
+        //user input a letter, thus let's guess..//
+        makeGuess(userGuess);
+    };
     
 });
 
@@ -82,7 +89,7 @@ const  makeGuess = function (userGuess) {
         guessMessage.innerText = "Ok... we both know that wasn't a letter. So please, keep it from A to Z?";
 
     } else { 
-        guessLetters.push(userGuess);
+        guessedLetters.push(userGuess);
         console.log(guessedLetters);
     }
 };
