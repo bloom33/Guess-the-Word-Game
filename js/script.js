@@ -27,7 +27,7 @@ const placeholder = function (word) {
         lettersGuessed.push("●");
     }
 
-    wordProgress.innnerText = lettersGuessed.join("");
+    wordProgress.innerText = lettersGuessed.join("");
 };
 
 placeholder(word);
