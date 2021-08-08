@@ -40,6 +40,9 @@ button.addEventListener("click", function (e) {
     inputLetter.value = "";
 
     guessMessage.innerText = ""; //empty message paragraph//
+
+    const guess = validateInput(inputLetter);
+    console.log(guess);
     
 });
 
