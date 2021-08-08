@@ -55,11 +55,11 @@ const validateInput = function (input) {
 
     //user inputs more than one letter?//  
     } else if (input.length > 1) {
-        guessMessage.innerText = "Enter one letter please." ;
+        guessMessage.innerText = "You won't pull one over on me. You guessed that already." ;
 
     //input contains special character, number, or some other entry that's not a letter?//  
     } else if (!input.match(acceptedLetter)) {
-        guessMessage.innerText = "Try again! Enter a letter from A to Z, please.";
+        guessMessage.innerText = "Ok... we both know that wasn't a letter. So please, keep it from A to Z?";
 
     } else {
         return input;
