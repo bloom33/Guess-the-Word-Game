@@ -36,21 +36,21 @@ placeholder(word);
 //Event listener for when user presses the button// 
 button.addEventListener("click", function (e) {
     e.preventDefault(); //prevents page from refreshing everytime guess button is clicked//
-    const userGuess = inputLetter.value; //grab what was entered in the input//
-    console.log(userGuess);
-    inputLetter.value = "";
-
     guessMessage.innerText = ""; //empty message paragraph//
 
-   // const guess = validateInput(inputLetter);
-   // console.log(guess);
-
-    const goodGuess = validateInput(userGuess);
+    const guess = inputLetter.value; //grab what was entered in the input//
+    const goodGuess = validateInput(guess); // makes sure it's a single letter entered//
 
     if (goodGuess) {
         //user input a letter, thus let's guess..//
-        makeGuess(userGuess);
+        makeGuess(guess);
     };
+
+    inputLetter.value = "";
+
+   // const guess = validateInput(inputLetter);
+    console.log(guess);
+
     
 });
 
@@ -62,16 +62,19 @@ const validateInput = function (input) {
 
     //input empty?//
     if (input.length === 0) {
-        guessMessage.innerText = "Enter a letter!" ;
+        guessMessage.innerText = "Enter a letter." ;
 
     //user inputs more than one letter?//  
     } else if (input.length > 1) {
-        guessMessage.innerText = "You won't pull one over on me. You guessed that already." ;
+        //guessMessage.innerText = "You won't pull one over on me. You guessed that already." ;
+        guessMessage.innerText = "Try again. You guessed that already." ;
 
     //input contains special character, number, or some other entry that's not a letter?//  
     } else if (!input.match(acceptedLetter)) {
-        guessMessage.innerText = "Ok... we both know that wasn't a letter. So please, keep it from A to Z?";
+        //guessMessage.innerText = "Ok... we both know that wasn't a letter. So please, keep it from A to Z?";
+        guessMessage.innerText = "Please enter a letter from A to Z.";
 
+    //input conatins a single letter. #Yay!//
     } else {
         return input;
     };
@@ -79,17 +82,17 @@ const validateInput = function (input) {
     
 }
 
-console.log(inputLetter);
+//console.log(inputLetter);
 
 ///////////////// continuing on, while waiting on feedback about lines 44 and 64 above ////////////
 
-const  makeGuess = function (userGuess) {
-    userGuess = userGuess.toUppercase; 
-    if (guessedLetters.includes(userGuess)) {
+const  makeGuess = function (guess) {
+    guess = guess.toUppercase; 
+    if (guessedLetters.includes(guess)) {
         guessMessage.innerText = "Ok... we both know that wasn't a letter. So please, keep it from A to Z?";
 
     } else { 
-        guessedLetters.push(userGuess);
+        guessedLetters.push(guess);
         console.log(guessedLetters);
     }
 };
