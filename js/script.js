@@ -17,7 +17,7 @@ const playAgain = document.querySelector(".play-again");
 
 //Starter word to test the app before fetching API data//
 const word = "magnolia";
-//Will contain all the letters the player guesses//
+//Will contain all the letters the player guesses//, //day 2//
 const guessedLetters = [];
 
 //Display circle symbol as a placeholder for letters while user guesses//
@@ -84,7 +84,6 @@ const validateInput = function (input) {
 
 //console.log(inputLetter);
 
-///////////////// continuing on, while waiting on feedback about lines 44 and 64 above ////////////
 
 const  makeGuess = function (guess) {
     guess = guess.toUppercase; 
@@ -94,5 +93,12 @@ const  makeGuess = function (guess) {
     } else { 
         guessedLetters.push(guess);
         console.log(guessedLetters);
+        showGuessedLetters();
     }
+};
+
+//day 3//
+const showGuessedLetters = function() {
+    guessLettersElement.innerHTML = "";
+    guessedLetters.push(guessLettersElement);
 };
