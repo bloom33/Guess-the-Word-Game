@@ -8,7 +8,7 @@ const wordProgress = document.querySelector(".word-in-progress");
 //The paragraph where the remaining guesses will display//
 const remainGuess = document.querySelector(".remaining");
 //The span inside the paragraph where the remaining guesses will display//
-const remainGuessText = document.querySelector("span");
+const remainGuessText = document.querySelector(".remaining span");
 //The empty paragraph where messages will appear when the player guesses a letter//
 const guessMessage = document.querySelector(".message");
 //The hidden button that will appear prompting the player to play again//
