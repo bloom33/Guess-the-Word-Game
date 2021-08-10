@@ -32,6 +32,10 @@ const getWord = async function () {
     const wordArray = words.split("\n"); //Delimiter used to create array, so extra spacing around words is eliminated//
     console.log(words);
     console.log(wordArray);
+    const randomIndex = Math.floor(Math.random() * wordArray.length); //makes sure program pulls random word from API file//
+    word = wordArray[randomIndex].trim(); //pulls random word and trims/eliminates white space around word//
+
+    placeholder(word);
 };
 
 getWord()
@@ -47,7 +51,6 @@ const placeholder = function (word) {
     wordProgress.innerText = lettersGuessed.join("");
 };
 
-placeholder(word);
 
 //Event listener for when user presses the button// 
 button.addEventListener("click", function (e) {
