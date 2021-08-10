@@ -1,3 +1,5 @@
+//part 1//
+
 const guessLettersElement = document.querySelector(".guessed-letters");
 //The button with the text “Guess!” in it//
 const button = document.querySelector(".guess");
@@ -16,9 +18,12 @@ const playAgain = document.querySelector(".play-again");
 //The unordered list where the player’s guessed letters will appear//
 
 //Starter word to test the app before fetching API data//
-const word = "magnolia";
-//Will contain all the letters the player guesses//, //day 2//
+let word = "magnolia";
+//Will contain all the letters the player guesses//, //part 2//
 const guessedLetters = [];
+//Maximum amount of guesses user is allowed// , //part 4//
+let remainingGuesses = 8;
+
 
 //Display circle symbol as a placeholder for letters while user guesses//
 const placeholder = function (word) {
@@ -54,7 +59,7 @@ button.addEventListener("click", function (e) {
     
 });
 
-//day 2// 
+//part 2// 
 
 //function which validates the user's input//
 const validateInput = function (input) {
@@ -92,12 +97,13 @@ const  makeGuess = function (guess) {
     } else { 
         guessedLetters.push(guess);
         console.log(guessedLetters);
+        countGuessesRemaining(guess);
         showGuessedLetters();
         updateWordProgress(guessedLetters);
     }
 };
 
-//day 3//
+//part 3//
 
 //function that will show letters guessed on the screen//
 const showGuessedLetters = function() {
@@ -134,6 +140,34 @@ const updateWordProgress = function (guessedLetters) {
     userWins();
 };
 
+//part 4//
+const countGuessesRemaining = function (guess) {
+    const upperWord = word.toUpperCase();
+
+    if (!upperWord.includes(guess)) {
+        //bad guess, = -1 //
+        guessMessage.innerText = `Sorry there's no ${guess} in this word.`;
+        remainingGuesses -= 1;
+
+    } else {
+        //good guess//
+        guessMessage.innerText = `Yes! The word has the letter ${guess}!`;
+    };
+
+    if (remainingGuesses === 0) {
+        guessMessage.innerHTML = `Game Over. The word was, <span class="highlight">${word.toUpperCase()}</span>.`;
+
+    } else if (remainingGuesses === 1) {
+        guessMessage.innerText = `${remainingGuesses} guess`;
+
+    } else {
+        guessMessage.innerText = `${remainingGuesses} guesses`;
+    }
+
+};
+
+
+//((part 3))//
 //function to check if user guessed word and won game//
 const userWins = function () {
     if (word.toUpperCase() === wordProgress.innerText) {
@@ -141,3 +175,4 @@ const userWins = function () {
         guessMessage.innerHTML =  `<p class="highlight">You guessed correct the word! Congrats!</p>`;
     }
 };
+
