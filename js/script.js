@@ -66,13 +66,12 @@ const validateInput = function (input) {
 
     //user inputs more than one letter?//  
     } else if (input.length > 1) {
-        //guessMessage.innerText = "You won't pull one over on me. You guessed that already." ;
-        guessMessage.innerText = "Try again. You guessed that already." ;
+        guessMessage.innerText = "Please enter one letter." ;
 
     //input contains special character, number, or some other entry that's not a letter?//  
     } else if (!input.match(acceptedLetter)) {
-        //guessMessage.innerText = "Ok... we both know that wasn't a letter. So please, keep it from A to Z?";
-        guessMessage.innerText = "Please enter a letter from A to Z.";
+        guessMessage.innerText = "Ok... we both know that wasn't a letter. So please, keep it from A to Z?";
+        
 
     //input conatins a single letter. #Yay!//
     } else {
@@ -99,6 +98,12 @@ const  makeGuess = function (guess) {
 
 //day 3//
 const showGuessedLetters = function() {
-    guessLettersElement.innerHTML = "";
-    guessedLetters.push(guessLettersElement);
+    guessLettersElement.innerHTML = ""; //clears list//
+    
+    for (const letter of guessedLetters) {
+        const li = document.createElement("li");
+        li.innerText = letter;
+        guessedLettersElement.append(li);
+
+    }
 };
