@@ -86,10 +86,10 @@ const validateInput = function (input) {
 
 
 const  makeGuess = function (guess) {
-    guess = guess.toUpperCase; 
+    guess = guess.toUpperCase(); 
     if (guessedLetters.includes(guess)) {
-        guessMessage.innerText = "Ok... we both know that wasn't a letter. So please, keep it from A to Z?";
-
+        guessMessage.innerText = "Please enter a letter from A to Z.";
+        
     } else { 
         guessedLetters.push(guess);
         console.log(guessedLetters);
