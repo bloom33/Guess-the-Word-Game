@@ -112,7 +112,7 @@ const showGuessedLetters = function() {
 };
 
 //function which will replaced placeholders with correctly guessed letters//
-const updateWordProgress = function(guessedLetters) {
+const updateWordProgress = function (guessedLetters) {
     const wordUpper = word.toUpperCase(); //changes 'word' to uppercase//
     const wordArray = wordUpper.split(""); //splits 'word' string to an array so it appears in guessedLetters array//
     
@@ -124,9 +124,20 @@ const updateWordProgress = function(guessedLetters) {
 
         } else {
             revealWord.push("●");
-            
+
         }
     }
     
-    console.log(revealWord);
+    //console.log(revealWord);
+    wordProgress.innerText = revealWord.join(""); // ? //
+
+    userWins();
+};
+
+//function to check if user guessed word and won game//
+const userWins = function () {
+    if (word.toUpperCase() === wordProgress.innerText) {
+        guessMessage.classList.add("win");
+        guessMessage.innerHTML =  `<p class="highlight">You guessed correct the word! Congrats!</p>`;
+    }
 };
