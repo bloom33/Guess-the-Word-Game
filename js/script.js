@@ -88,8 +88,8 @@ const validateInput = function (input) {
 const  makeGuess = function (guess) {
     guess = guess.toUpperCase(); 
     if (guessedLetters.includes(guess)) {
-        guessMessage.innerText = "Please enter a letter from A to Z.";
-        
+       guessMessage.innerText = "Try again. You guessed that already." ;
+       
     } else { 
         guessedLetters.push(guess);
         console.log(guessedLetters);
