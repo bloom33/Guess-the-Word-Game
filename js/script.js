@@ -93,17 +93,40 @@ const  makeGuess = function (guess) {
         guessedLetters.push(guess);
         console.log(guessedLetters);
         showGuessedLetters();
+        updateWordProgress(guessedLetters);
     }
 };
 
 //day 3//
+
+//function that will show letters guessed on the screen//
 const showGuessedLetters = function() {
     guessLettersElement.innerHTML = ""; //clears list//
     
     for (const letter of guessedLetters) {
         const li = document.createElement("li");
         li.innerText = letter;
-        guessedLettersElement.append(li);
+        guessLettersElement.append(li);
 
     }
+};
+
+//function which will replaced placeholders with correctly guessed letters//
+const updateWordProgress = function(guessedLetters) {
+    const wordUpper = word.toUpperCase(); //changes 'word' to uppercase//
+    const wordArray = wordUpper.split(""); //splits 'word' string to an array so it appears in guessedLetters array//
+    
+    const revealWord = []; //new array with updated letters//
+    //check if 'wordArray' contains letters from 'guessedLetters' array, if so, update placeholders with correct letter//
+    for (const letter of wordArray) {
+        if (guessedLetters.includes(letter)) {
+            revealWord.push(letter.toUpperCase());
+
+        } else {
+            revealWord.push("●");
+            
+        }
+    }
+    
+    console.log(revealWord);
 };
