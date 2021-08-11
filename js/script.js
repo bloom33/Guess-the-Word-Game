@@ -188,7 +188,7 @@ const userWins = function () {
         guessMessage.classList.add("win");
         guessMessage.innerHTML =  `<p class="highlight">You guessed correct the word! Congrats!</p>`;
 
-        startOver();
+        //startOver();
     }
 };
 
@@ -202,3 +202,21 @@ const startOver = function () {
     playAgain.classList.remove("hide");
 };
 
+playAgain.addEventListener("click", function () {
+    //reset all origin values; add getWord() - to allow user to play again//
+    guessMessage.classList.remove("win");
+    guessMessage.innerText = "";
+    guessLettersElement.innerHTML = "";
+    remainingGuesses = 8;
+    guessedLetters = [];
+    remainGuessText.innerText = `8 guesses`;
+
+    //show and hide the correct UI elements//
+    button.classList.remove("hide");
+    remainGuess.classList.remove("hide");
+    guessLettersElement.classList.remove("hide");
+    playAgain.classList.add("hide");
+
+    //grab new word from list//
+    getWord();
+});
