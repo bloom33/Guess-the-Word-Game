@@ -20,7 +20,7 @@ const playAgain = document.querySelector(".play-again");
 //Starter word to test the app before fetching API data//
 let word = "magnolia";
 //Will contain all the letters the player guesses//, //part 2//
-const guessedLetters = [];
+let guessedLetters = [];
 //Maximum amount of guesses user is allowed// , //part 4//
 let remainingGuesses = 8;
 
@@ -205,7 +205,7 @@ const startOver = function () {
 playAgain.addEventListener("click", function () {
     //reset all origin values; add getWord() - to allow user to play again//
     guessMessage.classList.remove("win");
-    //guessedLetters = [];
+    guessedLetters = [];
     guessMessage.innerText = "";
     guessLettersElement.innerHTML = "";
     remainingGuesses = 8;
