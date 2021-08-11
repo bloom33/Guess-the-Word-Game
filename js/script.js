@@ -170,6 +170,7 @@ const countGuessesRemaining = function (guess) {
 
     if (remainingGuesses === 0) {
         guessMessage.innerHTML = `Game Over. The word was, <span class="highlight">${word.toUpperCase()}</span>.`;
+        startOver();
 
     } else if (remainingGuesses === 1) {
         remainGuessText.innerText = `${remainingGuesses} guess`;
@@ -209,7 +210,7 @@ playAgain.addEventListener("click", function () {
     guessMessage.innerText = "";
     guessLettersElement.innerHTML = "";
     remainingGuesses = 8;
-    remainGuessText.innerText = `8 guesses`;
+    remainGuessText.innerText = `${remainingGuesses} guesses`;
 
     //grab new word from list//
     getWord();
@@ -219,5 +220,6 @@ playAgain.addEventListener("click", function () {
     remainGuess.classList.remove("hide");
     guessLettersElement.classList.remove("hide");
     playAgain.classList.add("hide");
+    
 
 });
